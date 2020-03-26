@@ -44,3 +44,18 @@ on_ft = ['markdown']
 repo = 'Yggdroot/indentLine'
 on_ft = ['python', 'stan', 'bq', 'sql']
 
+[[plugins]]
+repo = 'kassio/neoterm'
+on_cmd = ['TREPLSendSelection', 'TREPLSendLine', 'Tnew']
+hook_source = '''
+    let g:neoterm_default_mod='vertical'
+    let s:mydepth = strchars(getcwd()) - strchars(substitute(getcwd(), "/", "", "g"))
+    for i in range(s:mydepth)
+        let s:myls = system("ls ." . repeat("/..", i))
+        if s:myls =~ 'Pipfile'
+            let g:neoterm_repl_python = 'pipenv shell "ipython --no-autoindent || python"'
+        endif
+    endfor
+    let g:neoterm_autoscroll=1
+    tnoremap jj <c-\><c-n>
+'''
