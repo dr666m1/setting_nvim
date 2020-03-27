@@ -100,31 +100,31 @@ inoremap jj <esc>
 inoremap ｊｊ <esc>
 set number
 set list
-nnoremap @a :T myclip_cat %:p && exit<cr>
-nnoremap @p :T myclip_echo %:p && exit<cr>
+nnoremap @a :T clip_file %:p && exit<cr>
+nnoremap @p :T clip_winpath %:p && exit<cr>
 function MyClipFunc()
     if line(".") == line("v")
         let g:mysr = line(".")
         let g:myer = g:mysr
         if col(".") <= col("v")
-            let g:mysc = col(".") - 1
-            let g:myec = col("$") - col("v") - 1
+            let g:mysc = strchars(getline(".")) - strchars(matchstr(getline("."), ".*", col(".")-1))
+            let g:myec = strchars(matchstr(getline("."), ".*", col("v")-1)) - 1
         else
-            let g:mysc = col("v") - 1
-            let g:myec = col("$") - col(".") - 1
+            let g:mysc = strchars(getline(".")) - strchars(matchstr(getline("."), ".*", col("v")-1))
+            let g:myec = strchars(matchstr(getline("."), ".*", col(".")-1)) - 1
         endif
     elseif line(".") < line("v")
         let g:mysr = line(".")
         let g:myer = line("v")
-        let g:mysc = col(".") - 1
-        let g:myec = col("$") - col("v") - 1
+        let g:mysc = strchars(getline(".")) - strchars(matchstr(getline("."), ".*", col(".")-1))
+        let g:myec = strchars(matchstr(getline("v"), ".*", col("v")-1)) - 1
     else
         let g:mysr = line("v")
         let g:myer = line(".")
-        let g:mysc = col("v") - 1
-        let g:myec = col([line("."), "$"]) - col(".") - 1
+        let g:mysc = strchars(getline("v")) - strchars(matchstr(getline("v"), ".*", col("v")-1))
+        let g:myec = strchars(matchstr(getline("."), ".*", col(".")-1)) - 1
     endif
-    let g:mycmd = 'T myclip_cat ' . expand("%") . ' ' . g:mysr . ' ' . g:myer . ' ' . g:mysc . ' ' . g:myec . ' && exit'
+    let g:mycmd = 'T clip_file ' . expand("%") . ' ' . g:mysr . ' ' . g:myer . ' ' . g:mysc . ' ' . g:myec . ' && exit'
     return "y:execute g:mycmd" . "\<cr>"
 endfunction
 vnoremap <expr>@y MyClipFunc()
