@@ -136,9 +136,5 @@ nnoremap < 10<c-w><
 nnoremap > 10<c-w>>
 nnoremap <expr>@v (&paste == 0) ? ":set paste\<cr>" : ":set nopaste\<cr>"
 
-nnoremap @c :Tnew<cr>
-nnoremap rr :TREPLSendLine<cr><down>0
-vnoremap rr :<c-u>TREPLSendSelection<cr><s-o><esc>:TREPLSendLine<cr>dd<down>0
-
 "===== local_setting =====
 runtime ./init_local.vim
