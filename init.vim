@@ -128,6 +128,7 @@ function MyClipFunc()
     return "y:execute g:mycmd" . "\<cr>"
 endfunction
 vnoremap <expr>@y MyClipFunc()
+vnoremap y y`>
 vnoremap i <s-i>
 vnoremap a <s-a>
 vnoremap v <esc>

@@ -13,7 +13,7 @@ hook_add = '''
     tnoremap jj <c-\><c-n>
     nnoremap @c :Tnew<cr>
     nnoremap rr :TREPLSendLine<cr><down>0
-    vnoremap rr :<c-u>TREPLSendSelection<cr><s-o><esc>:TREPLSendLine<cr>u<down>0
+    vnoremap rr :<c-u>TREPLSendSelection<cr><s-o><esc>:TREPLSendLine<cr>u`>
     if findfile("Pipfile", ".;") != ""
         let g:neoterm_repl_python = 'pipenv shell "ipython --no-autoindent || python"'
     endif
