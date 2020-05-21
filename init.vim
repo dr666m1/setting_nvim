@@ -138,8 +138,6 @@ nnoremap > 10<c-w>>
 nnoremap <expr>@v (&paste == 0) ? ":set paste\<cr>" : ":set nopaste\<cr>"
 
 "===== dictionary =====
-""autocmd Filetype * execute 'setlocal dict+=~/.nvim/nvim/dict/' . &filetype . '.txt'
-""autocmd Filetype * execute 'setlocal dictionary+=/home/dr666m1/.nvim/nvim/dict/'
 autocmd Filetype * execute 'setlocal dictionary+=~/.nvim/nvim/dict/' . &filetype . '.txt'
 "set complete+=k
 

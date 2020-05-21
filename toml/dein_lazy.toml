@@ -15,14 +15,16 @@ hook_add = '''
     imap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : "\<tab>"
     smap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : "\<tab>"
     nnoremap @s :tabedit%<cr>:NeoSnippetEdit<cr>
+    "set completeopt+=noinsert
     let g:neosnippet#enable_complete_done=1
-    let g:testarg="abc"
 '''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
-hook_source = 'let g:deoplete#enable_at_startup=1'
+hook_source = '''
+    let g:deoplete#enable_at_startup=1
+'''
 
 [[plugins]]
 repo = 'deoplete-plugins/deoplete-dictionary'
