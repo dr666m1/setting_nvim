@@ -14,7 +14,7 @@ hook_add = '''
     nnoremap @c :Tnew<cr>
     nnoremap rr :TREPLSendLine<cr><down>0
     vnoremap rr :<c-u>TREPLSendSelection<cr><s-o><esc>:TREPLSendLine<cr>u`>
-    if findfile("Pipfile", ".;") != ""
-        let g:neoterm_repl_python = 'pipenv shell "ipython --no-autoindent || python"'
+    if findfile("pyproject.toml", ".;") != ""
+        let g:neoterm_repl_python = 'poetry run ipython --no-autoindent'
     endif
 '''

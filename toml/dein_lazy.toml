@@ -12,6 +12,7 @@ on_i = 1
 hook_add = '''
     let g:neosnippet#disable_runtime_snippets={'_':1,}
     let g:neosnippet#snippets_directory='~/.nvim/snip'
+    "imap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<cr>" : "\<tab>"
     imap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : "\<tab>"
     smap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : "\<tab>"
     nnoremap @s :tabedit%<cr>:NeoSnippetEdit<cr>
@@ -24,6 +25,10 @@ repo = 'Shougo/deoplete.nvim'
 on_i = 1
 hook_source = '''
     let g:deoplete#enable_at_startup=1
+'''
+hook_post_source = '''
+    call deoplete#custom#option("ignore_case", "true")
+    call deoplete#custom#set('dictionary', 'rank', 9999)
 '''
 
 [[plugins]]
