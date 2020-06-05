@@ -28,7 +28,6 @@ hook_source = '''
 '''
 hook_post_source = '''
     call deoplete#custom#option("ignore_case", "true")
-    call deoplete#custom#set('dictionary', 'rank', 9999)
 '''
 
 [[plugins]]
@@ -53,5 +52,5 @@ on_ft = ['markdown']
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-on_ft = ['python', 'stan', 'bq', 'sql']
+on_ft = ['python', 'stan', 'bq', 'sql', 'r']
 

@@ -143,3 +143,4 @@ autocmd Filetype * execute 'setlocal dictionary+=~/.nvim/nvim/dict/' . &filetype
 
 "===== local_setting =====
 runtime ./init_local.vim
+let r_indent_align_args = 0
