@@ -52,5 +52,5 @@ on_ft = ['markdown']
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-on_ft = ['python', 'stan', 'bq', 'sql', 'r']
+on_ft = ['python', 'stan', 'bq', 'sql', 'r', 'html', 'javascript']
 

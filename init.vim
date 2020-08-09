@@ -55,6 +55,7 @@ nnoremap <c-]> gt
 "===== quote & bracket =====
 inoremap { {}<left>
 inoremap ( ()<left>
+inoremap (; ();<left><left>
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap [ []<left>
@@ -143,4 +144,3 @@ autocmd Filetype * execute 'setlocal dictionary+=~/.nvim/nvim/dict/' . &filetype
 
 "===== local_setting =====
 runtime ./init_local.vim
-let r_indent_align_args = 0
